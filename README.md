@@ -31,6 +31,7 @@ Publishing (OIDC), never a token stored as a GitHub secret.
 Requires Python 3.10+ only; no package downloads are needed.
 
 ```powershell
+$env:PYTHONPATH = "src"
 python tools/lint.py
 python -m unittest discover -s tests -v
 python tools/build.py

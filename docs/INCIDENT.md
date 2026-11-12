@@ -24,9 +24,10 @@ repository is intentionally not presented as having evidence that has not run.
 
 ## Why the fixed pipeline is materially stronger
 
-The release path has separate source-test, artifact, container, and publisher jobs.
-The publisher consumes only the artifact uploaded by this exact commit, retests the
-downloaded wheel, and has no checkout, shell, or stored package credential. Its OIDC
+The release path has separate source-test, artifact, container, verification, and publisher jobs.
+The verification job consumes only the artifact uploaded by this exact commit and
+retests the downloaded wheel. The publisher has no checkout, shell, or stored package
+credential; it receives only that verified artifact. Its OIDC
 identity is restricted by TestPyPI to this repository, `release.yml`, and the
 `testpypi` environment. A fork pull request receives only read permissions and never
 meets the publish condition.
