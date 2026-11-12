@@ -6,7 +6,7 @@
 |---|---|---|---|---|---|
 | B1 | `from tomllib import loads` while metadata says `>=3.10` | `compileall` on Python 3.12 does not execute the import | `ImportError` on Python 3.10 | Dispatch `incident-red.yml`, `py310-import` | `release.yml` matrix tests 3.10 |
 | B2 | `os.fork()` in CLI startup | Ubuntu-only syntax checking never invokes the command | CLI cannot start on Windows | Dispatch `windows-startup` | Windows matrix plus installed-wheel smoke |
-| B3 | runtime `defaults.json` is absent from package | no wheel is made or installed | package imports, then fails at runtime for every installed user | Dispatch `missing-wheel-data` | wheel contents, `RECORD`, and clean-venv command are audited |
+| B3 | runtime `defaults.json` exists in source but is excluded from the wheel | no wheel is made or installed | package imports, then fails at runtime for every installed user | Dispatch `missing-wheel-data` | wheel contents, `RECORD`, and clean-venv command are audited |
 | B4 | package is `0.9.2` but the hypothetical tag is `v0.9.3` | CI never reads tags or artifact metadata | immutable index receives a misleading release | Dispatch `tag-version` | tag job rejects unequal values before build/publish |
 
 The deliberately red workflow exits non-zero by design. It is separate from the

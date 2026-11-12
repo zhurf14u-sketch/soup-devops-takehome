@@ -20,8 +20,9 @@ def main(name: str) -> None:
         fail("tomllib is imported but Python 3.10 does not provide it")
     if name == "windows-startup" and "os.fork" in source:
         fail("os.fork is unavailable on Windows")
-    if name == "missing-wheel-data" and not (NAIVE / "src" / "soup_cli" / "defaults.json").exists():
-        fail("the runtime defaults file is absent from the artifact source")
+    naive_config = (NAIVE / "pyproject.toml").read_text(encoding="utf-8")
+    if name == "missing-wheel-data" and 'exclude = ["soup_cli/defaults.json"]' in naive_config:
+        fail("the runtime defaults file is deliberately excluded from the wheel")
     if name == "tag-version":
         declared = "0.9.2"
         tag = "0.9.3"

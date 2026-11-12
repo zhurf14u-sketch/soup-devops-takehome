@@ -5,3 +5,6 @@ requires-python = ">=3.10"
 
 [project.scripts]
 soupc = "soup_cli.cli:main"
+
+[tool.naive-build]
+exclude = ["soup_cli/defaults.json"] # Source works; the wheel silently omits it.

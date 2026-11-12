@@ -60,7 +60,7 @@ def wheel(release: str) -> pathlib.Path:
 def sdist(release: str) -> pathlib.Path:
     target = DIST / f"soup-release-demo-{release}.tar.gz"
     with tarfile.open(target, "w:gz") as archive:
-        for name in ["pyproject.toml", "README.md", "LICENSE"]:
+        for name in ["pyproject.toml", "setup.py", "README.md", "LICENSE"]:
             archive.add(ROOT / name, arcname=f"soup-release-demo-{release}/{name}")
         for source in sorted((ROOT / "src" / "soup_cli").glob("*.py")):
             archive.add(source, arcname=f"soup-release-demo-{release}/src/soup_cli/{source.name}")
