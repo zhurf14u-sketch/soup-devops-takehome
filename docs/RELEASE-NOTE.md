@@ -8,9 +8,9 @@ Trusted Publisher, a rehearsed yank/supersede runbook, and at least one proven
 red-to-green evidence cycle are in place. Immutable package versions make a mistaken
 upload a public support and security event rather than a reversible deploy.
 
-Fix first: replace `REPLACE_WITH_GITHUB_OWNER` with the real owner, configure the
-TestPyPI Trusted Publisher and protected environment, push the repository, and save
-the four expected-red plus one fixed-green Actions URLs. Then enable TestPyPI only.
+Fix first: configure the TestPyPI Trusted Publisher and protected environment, push
+the repository, and save the four expected-red plus one fixed-green Actions URLs.
+Then enable TestPyPI only.
 After a reviewed test release and incident drill, an organization may choose to
 remove the environment approval for low-risk production releases - that is a policy
 decision, not a conclusion drawn from a green CI badge.

@@ -82,7 +82,7 @@ jobs:
     needs: [artifact, container]
     if: >-
       github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') &&
-      github.repository_owner == 'REPLACE_WITH_GITHUB_OWNER'
+      github.repository_owner == 'zhurf14u-sketch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -102,7 +102,7 @@ jobs:
     needs: verify-publishable-artifact
     if: >-
       github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') &&
-      github.repository_owner == 'REPLACE_WITH_GITHUB_OWNER'
+      github.repository_owner == 'zhurf14u-sketch'
     runs-on: ubuntu-latest
     environment: testpypi
     permissions:
