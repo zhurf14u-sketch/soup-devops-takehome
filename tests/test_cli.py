@@ -14,7 +14,7 @@ class CliTests(unittest.TestCase):
             exit_code = main(["--json"])
         self.assertEqual(exit_code, 0)
         payload = json.loads(stream.getvalue())
-        self.assertEqual(payload["package"], "soup-release-demo")
+        self.assertEqual(payload["package"], "soup-devops-takehome-danial-2026")
         self.assertEqual(payload["version"], __version__)
 
 

@@ -14,7 +14,7 @@ import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
-PROJECT = "soup_release_demo"
+PROJECT = "soup_devops_takehome_danial_2026"
 
 
 def version() -> str:
@@ -30,7 +30,7 @@ def record_hash(data: bytes) -> str:
 
 
 def metadata(release: str) -> bytes:
-    return ("Metadata-Version: 2.1\nName: soup-release-demo\nVersion: " + release + "\n"
+    return ("Metadata-Version: 2.1\nName: soup-devops-takehome-danial-2026\nVersion: " + release + "\n"
             "Summary: Small CLI used to demonstrate a trustworthy Python release pipeline\n"
             "Requires-Python: >=3.10\nLicense: MIT\n").encode()
 
@@ -58,12 +58,12 @@ def wheel(release: str) -> pathlib.Path:
 
 
 def sdist(release: str) -> pathlib.Path:
-    target = DIST / f"soup-release-demo-{release}.tar.gz"
+    target = DIST / f"soup-devops-takehome-danial-2026-{release}.tar.gz"
     with tarfile.open(target, "w:gz") as archive:
         for name in ["pyproject.toml", "setup.py", "README.md", "LICENSE"]:
-            archive.add(ROOT / name, arcname=f"soup-release-demo-{release}/{name}")
+            archive.add(ROOT / name, arcname=f"soup-devops-takehome-danial-2026-{release}/{name}")
         for source in sorted((ROOT / "src" / "soup_cli").glob("*.py")):
-            archive.add(source, arcname=f"soup-release-demo-{release}/src/soup_cli/{source.name}")
+            archive.add(source, arcname=f"soup-devops-takehome-danial-2026-{release}/src/soup_cli/{source.name}")
     return target
 
 

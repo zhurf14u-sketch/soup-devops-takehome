@@ -19,11 +19,11 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    result = {"package": "soup-release-demo", "python": platform.python_version(), "version": __version__}
+    result = {"package": "soup-devops-takehome-danial-2026", "python": platform.python_version(), "version": __version__}
     if args.json:
         print(json.dumps(result, sort_keys=True))
     else:
-        print("soup-release-demo " + __version__)
+        print("soup-devops-takehome-danial-2026 " + __version__)
     return 0
 
 

@@ -1,5 +1,5 @@
 [project]
-name = "soup-release-demo"
+name = "soup-devops-takehome-danial-2026"
 version = "0.9.4"
 description = "Small CLI used to demonstrate a trustworthy Python release pipeline"
 readme = "README.md"
